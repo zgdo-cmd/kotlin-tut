@@ -18,9 +18,9 @@ fun main() {
     println()
 
 
-    println(trackScreenTime(300, 250))
-    println(trackScreenTime(300, 300))
-    println(trackScreenTime(200, 220))
+    println(trackScreen(300, 250))
+    println(trackScreen(300, 300))
+    println(trackScreen(200, 220))
 }
 
 
@@ -28,6 +28,6 @@ fun displayAlertMessage(operatingSystem: String = "unknown", emailId: String): S
     return "There's a new sign-in request on $operatingSystem OS for your Google Account $emailId."
 }
 
-fun trackScreenTime(timeSpentToday: Int, timeSpentYesterday: Int): Boolean {
+fun trackScreen(timeSpentToday: Int, timeSpentYesterday: Int): Boolean {
     return timeSpentToday > timeSpentYesterday
 }
