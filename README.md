@@ -1,1 +1,1 @@
-# This is just me learning kotlin for developing android applications and for android penetration testing.
+# This is just me learning kotlin for android development and penetration testing.
