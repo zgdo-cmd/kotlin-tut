@@ -18,11 +18,14 @@ fun main() {
     println()
 
 
-   println(trackScreen(300, 250))
-   println(trackScreen(300, 300))
-   println(trackScreen(200, 220))
+//    println(trackScreen(300, 250))
+//    println(trackScreen(300, 300))
+//    println(trackScreen(200, 220))
 }
 
+fun trackScreen(timeSpentToday: Int, timeSpentYesterday: Int): Boolean {
+    return timeSpentToday > timeSpentYesterday
+}
 fun displayAlertMessage(operatingSystem: String = "unknown", emailId: String): String {
     return "There's a new sign-in request on $operatingSystem OS for your Google Account $emailId."
 }
