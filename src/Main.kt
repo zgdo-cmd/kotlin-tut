@@ -18,9 +18,9 @@ fun main() {
     println()
 
 
-//    println(trackScreen(300, 250))
-//    println(trackScreen(300, 300))
-//    println(trackScreen(200, 220))
+   println(trackScreen(300, 250))
+   println(trackScreen(300, 300))
+   println(trackScreen(200, 220))
 }
 
 fun displayAlertMessage(operatingSystem: String = "unknown", emailId: String): String {
