@@ -12,9 +12,12 @@ fun main() {
     favoriteActor2 = null
     println(favoriteActor2)
 
-    // Prints: null if nullable is null, otherwise prints the length of the string
+
     var favoriteActor3: String? = "Sarah Oh"
     //Accessing string property with safe call operator
+    println(favoriteActor3?.length)
+    // Prints: null if nullable is null, otherwise prints the length of the string
+    favoriteActor3 = null
     println(favoriteActor3?.length)
 
 }
