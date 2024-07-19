@@ -20,4 +20,9 @@ fun main() {
     favoriteActor3 = null
     println(favoriteActor3?.length)
 
+    //Not-Null assertion operator
+    var favoriteActor4: String? = null
+    // Throws NullPointerException if nullable is null, otherwise prints the length of the string
+    println(favoriteActor4!!.length)
+
 }
