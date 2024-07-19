@@ -23,6 +23,17 @@ fun main() {
     //Not-Null assertion operator
     var favoriteActor4: String? = null
     // Throws NullPointerException if nullable is null, otherwise prints the length of the string
-    println(favoriteActor4!!.length)
+    // println(favoriteActor4!!.length)
 
+
+    //Performing null checks using if/else conditionals
+    var favoriteActor: String ? = null
+
+    val lengthOfName = if(favoriteActor != null){
+        favoriteActor.length
+    }else{
+        0
+    }
+
+    println(lengthOfName)
 }
