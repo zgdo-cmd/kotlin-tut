@@ -29,11 +29,19 @@ fun main() {
     //Performing null checks using if/else conditionals
     var favoriteActor: String ? = null
 
-    val lengthOfName = if(favoriteActor != null){
+    val lengthOfName1 = if(favoriteActor != null){
         favoriteActor.length
     }else{
         0
     }
 
-    println(lengthOfName)
+    println(lengthOfName1)
+
+
+    //Using Elvis Operator
+    var favoriteActor5: String?  = "Sarah Oh"
+
+    // Prints: 0 if nullable is null, otherwise prints the length of the string
+    val lengthOfName2 = favoriteActor5?.length ?: 0
+    println("The number of characters in your favorite actor's name is $lengthOfName2.")
 }
