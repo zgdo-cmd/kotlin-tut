@@ -8,6 +8,18 @@ fun main() {
     SmartTvDevice.nextChannel()
     println(SmartTvDevice.deviceStatus)
 
+    val SmartLightDevice = SmartLightDevice(" normal flash light", "Tool")
+    println("This is a ${SmartLightDevice.deviceType}. A ${SmartLightDevice.category} you need.")
+    SmartLightDevice.turnOff()
+    SmartLightDevice.turnOn()
+    println("Current brightness level is at: ${SmartLightDevice.brightnessLevel}")
+    SmartLightDevice.increaseBrightness()
+    println("Current brightness level is at: ${SmartLightDevice.brightnessLevel}")
+    println(SmartLightDevice.deviceStatus)
+
+
+
+
 
 }
 
