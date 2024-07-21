@@ -1,5 +1,5 @@
 fun main() {
-    val SmartDevice = SmartDevice()
+    val SmartDevice = SmartDevice(deviceType = "Smart TV", category = "Entertainment")
 
     println("Device type is: ${SmartDevice.deviceType}")
     println("The Device is for: ${SmartDevice.category}")
@@ -7,11 +7,9 @@ fun main() {
     SmartDevice.turnOff()
 }
 
-class SmartDevice() {
-    val deviceType = "SmartTV"
-    val category = "Entertainment"
-    var deviceStatus = "online"
+class SmartDevice(val deviceType: String, val category: String) {
 
+    var deviceStatus = "online"
 
     fun turnOn() {
         println("Smart device is turned on.")
@@ -20,7 +18,5 @@ class SmartDevice() {
     fun turnOff() {
         println("Smart device is turned off.")
     }
-
-
 
 }
