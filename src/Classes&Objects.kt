@@ -1,9 +1,13 @@
 fun main() {
-//    val SmartDevice = SmartDevice(deviceType = "Smart TV", category = "Entertainment")
-    val SmartDevice = SmartDevice(deviceType = "Smart TV", category = "Entertainment", 2)
 
-//    println("Device type is: ${SmartDevice.deviceType}")
-//    println("The Device is for: ${SmartDevice.category}")
+    val SmartTvDevice = SmartTvDevice("Samsung Smart TV", deviceCategory = "Entertainment")
+    println("This TV is a ${SmartTvDevice.deviceType}. Really good for ${SmartTvDevice.category}")
+    SmartTvDevice.turnOn()
+    SmartTvDevice.turnOff()
+    SmartTvDevice.increaseSpeakerVolume()
+    SmartTvDevice.nextChannel()
+    println(SmartTvDevice.deviceStatus)
+
 
 }
 
@@ -26,14 +30,12 @@ open class SmartDevice(val deviceType: String, val category: String) {
 
     fun turnOff() {
         println("Smart device is turned offline.")
-        println(deviceStatus)
-
     }
 }
 
 
-class SmartTvDevice(deviceType: String, deviceCategory: CharCategory) :
-    SmartDevice(deviceType = deviceType, category = deviceType){
+class SmartTvDevice(deviceType: String, deviceCategory: String) :
+    SmartDevice(deviceType = deviceType, category = deviceCategory){
 
         var speakerVolume = 2
             set(value){
@@ -59,3 +61,19 @@ class SmartTvDevice(deviceType: String, deviceCategory: CharCategory) :
             println("Channel number increased to $channelNumber")
         }
 }
+
+class SmartLightDevice(deviceType: String, deviceCategory: String) :
+        SmartDevice(deviceType = deviceType, category = deviceCategory) {
+
+            var brightnessLevel = 0
+                set(value) {
+                    if (value in 0..100){
+                        field = value
+                    }
+                }
+
+            fun increaseBrightness() {
+                brightnessLevel++
+                println("Brightness increased to $brightnessLevel")
+            }
+        }
