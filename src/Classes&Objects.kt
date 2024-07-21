@@ -7,7 +7,7 @@ fun main() {
 
 }
 
-class SmartDevice(val deviceType: String, val category: String) {
+open class SmartDevice(val deviceType: String, val category: String) {
 
     var deviceStatus = "online"
 
@@ -29,5 +29,33 @@ class SmartDevice(val deviceType: String, val category: String) {
         println(deviceStatus)
 
     }
+}
 
+
+class SmartTvDevice(deviceType: String, deviceCategory: CharCategory) :
+    SmartDevice(deviceType = deviceType, category = deviceType){
+
+        var speakerVolume = 2
+            set(value){
+                if (value in 0..100){
+                    field = value
+                }
+            }
+
+        var channelNumber = 1
+            set(value) {
+                if (value in 0..200) {
+                    field = value
+                }
+            }
+
+        fun increaseSpeakerVolume() {
+            speakerVolume++
+            println("Speaker volume increased to $speakerVolume.")
+        }
+
+        fun nextChannel() {
+            channelNumber++
+            println("Channel number increased to $channelNumber")
+        }
 }
