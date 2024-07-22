@@ -89,3 +89,21 @@ class SmartLightDevice(deviceType: String, deviceCategory: String) :
                 println("Brightness increased to $brightnessLevel")
             }
         }
+
+class SmartHome (val smartTvDevice: SmartTvDevice){
+    fun turnOnTv() {
+        smartTvDevice.turnOn()
+    }
+
+    fun turnOffTv() {
+        smartTvDevice.turnOff()
+    }
+
+    fun increaseTvVolume() {
+        smartTvDevice.increaseSpeakerVolume()
+    }
+
+    fun changeTvChannelToNext() {
+        smartTvDevice.nextChannel()
+    }
+}
