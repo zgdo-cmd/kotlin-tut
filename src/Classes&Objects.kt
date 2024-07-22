@@ -6,8 +6,7 @@ fun main() {
 
     smartDevice = SmartLightDevice("Google Light", "Utility")
     smartDevice.turnOn()
-
-
+    smartDevice.turnOff()
 
 }
 
@@ -21,7 +20,6 @@ open class SmartDevice(val name: String, val category: String) {
             1 -> "offline"
             else -> "unknown"
         }
-
     }
 
     open fun turnOn() {
@@ -29,13 +27,13 @@ open class SmartDevice(val name: String, val category: String) {
     }
 
     open fun turnOff() {
-        println("Smart device is turned offline.")
+        println("Smart device is offline.")
     }
 }
 
 
-class SmartTvDevice(name: String, deviceCategory: String) :
-    SmartDevice(name = name, category = deviceCategory){
+class SmartTvDevice(name: String, category: String) :
+    SmartDevice(name = name, category = category){
 
         var speakerVolume = 2
             set(value){
@@ -74,8 +72,8 @@ class SmartTvDevice(name: String, deviceCategory: String) :
         }
 }
 
-class SmartLightDevice(name: String, deviceCategory: String) :
-        SmartDevice(name = name, category = deviceCategory) {
+class SmartLightDevice(name: String, category: String) :
+        SmartDevice(name = name, category = category) {
 
             var brightnessLevel = 0
                 set(value) {
