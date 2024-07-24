@@ -26,11 +26,13 @@ fun main() {
 
     var smartDevice: SmartDevice = SmartTvDevice("Androi TV", "Entertainment")
     smartDevice.turnOn()
-    smartDevice.turnOff()
 
     smartDevice = SmartLightDevice("Google Light", "Utility")
     smartDevice.turnOn()
-    smartDevice.turnOff()
+
+    var smartHome = SmartHome(SmartTvDevice("Android Tv", "Entertainment"), SmartLightDevice("Google Light", "Utility"))
+    smartHome.increaseTvVolume()
+    smartHome.increaseLightBrightness()
 
 }
 
@@ -66,7 +68,7 @@ class SmartTvDevice(name: String, category: String) :
 
         override val deviceType = "Smart Tv"
 
-        private var speakerVolume by RangeRegulator(2, 0, 100)
+        private var speakerVolume by RangeRegulator(1, 0, 100)
         private var channelNumber by RangeRegulator(1, 0, 200)
 
         fun increaseSpeakerVolume() {
@@ -97,7 +99,7 @@ class SmartLightDevice(name: String, category: String) :
 
             override val deviceType = "Smart Light"
 
-            private var brightnessLevel by RangeRegulator(0, 0, 100)
+            private var brightnessLevel by RangeRegulator(1, 0, 100)
 
             fun increaseBrightness() {
                 brightnessLevel++
@@ -106,7 +108,7 @@ class SmartLightDevice(name: String, category: String) :
 
             override fun turnOn() {
                 super.turnOn()
-                brightnessLevel = 2
+                brightnessLevel = 1
                 println("$name turned on. The brightness level is $brightnessLevel")
             }
             override fun turnOff() {
