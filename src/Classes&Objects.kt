@@ -13,6 +13,7 @@ fun main() {
 open class SmartDevice(val name: String, val category: String) {
 
     var deviceStatus = "online"
+    open val deviceType = "unknown"
 
     constructor(deviceType: String, category: String, statusCode: Int) : this(deviceType, category) {
         deviceStatus = when(statusCode) {
@@ -34,6 +35,8 @@ open class SmartDevice(val name: String, val category: String) {
 
 class SmartTvDevice(name: String, category: String) :
     SmartDevice(name = name, category = category){
+
+        override val deviceType = "Smart Tv"
 
         var speakerVolume = 2
             set(value){
@@ -74,6 +77,8 @@ class SmartTvDevice(name: String, category: String) :
 
 class SmartLightDevice(name: String, category: String) :
         SmartDevice(name = name, category = category) {
+
+            override val deviceType = "Smart Light"
 
             var brightnessLevel = 0
                 set(value) {
