@@ -96,6 +96,10 @@ class SmartTvDevice(name: String, category: String) :
             super.turnOff()
             println("$name turned off")
         }
+
+        fun decreaseVolume() {
+            increaseSpeakerVolume()
+        }
 }
 
 class SmartLightDevice(name: String, category: String) :
