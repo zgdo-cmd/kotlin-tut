@@ -24,21 +24,20 @@ class RangeRegulator(
 
 fun main() {
 
-    var smartDevice: SmartDevice = SmartTvDevice("Androi TV", "Entertainment")
-    smartDevice.turnOn()
-
-    smartDevice = SmartLightDevice("Google Light", "Utility")
-    smartDevice.turnOn()
+//    var smartDevice: SmartDevice = SmartTvDevice("Androi TV", "Entertainment")
+//    smartDevice.turnOn()
+//
+//    smartDevice = SmartLightDevice("Google Light", "Utility")
+//    smartDevice.turnOn()
 
     var smartHome = SmartHome(SmartTvDevice("Android Tv", "Entertainment"), SmartLightDevice("Google Light", "Utility"))
-    smartHome.increaseTvVolume()
-    smartHome.increaseLightBrightness()
+    smartHome.decreaseLightBrightness()
 
 }
 
 open class SmartDevice(val name: String, val category: String) {
 
-    var deviceStatus = "online"
+    var deviceStatus = "off"
         protected set(value) {
             field = value
         }
@@ -128,51 +127,76 @@ class SmartLightDevice(name: String, category: String) :
                 brightnessLevel = 0
                 println("Smart Light turned off")
             }
+
+            fun decreaseBrightness() {
+                brightnessLevel--
+            }
         }
 
 class SmartHome (
     val smartTvDevice: SmartTvDevice,
     val smartLightDevice: SmartLightDevice
 ){
-    var deviceTurnOnCount = 0
-        private set
 
-    fun turnOnTv() {
-        deviceTurnOnCount++
-        smartTvDevice.turnOn()
+
+//    var deviceTurnOnCount = 0
+//        private set
+//
+//    fun turnOnTv() {
+//        deviceTurnOnCount++
+//        smartTvDevice.turnOn()
+//    }
+//
+//    fun turnOffTv() {
+//        deviceTurnOnCount--
+//        smartTvDevice.turnOff()
+//    }
+//
+//    fun increaseTvVolume() {
+//        smartTvDevice.increaseSpeakerVolume()
+//    }
+//
+//    fun changeTvChannelToNext() {
+//        smartTvDevice.nextChannel()
+//    }
+//
+//    fun turnOnLight() {
+//        deviceTurnOnCount++
+//        smartLightDevice.turnOn()
+//    }
+//    fun turnOffLight() {
+//        deviceTurnOnCount++
+//        smartLightDevice.turnOff()
+//    }
+//
+//    fun increaseLightBrightness() {
+//        smartLightDevice.increaseBrightness()
+//    }
+//
+//    fun turnOfAllDevices() {
+//        turnOffTv()
+//        turnOffLight()
+//    }
+
+    fun decreaseTvVolume() {
+        if(smartTvDevice.deviceStatus == "on"){
+            smartTvDevice.decreaseVolume()
+        }
     }
 
-    fun turnOffTv() {
-        deviceTurnOnCount--
-        smartTvDevice.turnOff()
+    fun previousTvChannel() {
+        if (smartLightDevice.deviceStatus == "on"){
+            smartTvDevice.previousChannel()
+        }
     }
 
-    fun increaseTvVolume() {
-        smartTvDevice.increaseSpeakerVolume()
+    fun decreaseLightBrightness() {
+        if(smartLightDevice.deviceStatus == "on"){
+            smartLightDevice.decreaseBrightness()
+        }else{
+            println("You can't do that shit")
+        }
     }
-
-    fun changeTvChannelToNext() {
-        smartTvDevice.nextChannel()
-    }
-
-    fun turnOnLight() {
-        deviceTurnOnCount++
-        smartLightDevice.turnOn()
-    }
-    fun turnOffLight() {
-        deviceTurnOnCount++
-        smartLightDevice.turnOff()
-    }
-
-    fun increaseLightBrightness() {
-        smartLightDevice.increaseBrightness()
-    }
-
-    fun turnOfAllDevices() {
-        turnOffTv()
-        turnOffLight()
-    }
-
 }
 
 
