@@ -98,7 +98,11 @@ class SmartTvDevice(name: String, category: String) :
         }
 
         fun decreaseVolume() {
-            increaseSpeakerVolume()
+            speakerVolume--
+        }
+
+        fun previousChannel() {
+            channelNumber--
         }
 }
 
