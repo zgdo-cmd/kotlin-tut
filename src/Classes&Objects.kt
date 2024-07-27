@@ -60,6 +60,10 @@ open class SmartDevice(val name: String, val category: String) {
     open fun turnOff() {
         deviceStatus = "off"
     }
+
+    fun printDeviceInfo(){
+        print("Device name: $name, category: $category, type: $deviceType")
+    }
 }
 
 
